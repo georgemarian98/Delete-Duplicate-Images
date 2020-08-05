@@ -7,7 +7,7 @@ Remove the duplicate images between 2 selected folders. As it detects a duplicat
 When you start the application, first you are shown a folder dialog where you select the path to the first folder, then a second folder dialog where you select the second folder.
 If you cancel any of the dialog an error window appears where you can press retry or terminate the app. After you selected the folders, it searches for the images, if none can be found, an error window appears. As it iterate through images, it writes in the console when it deletes them. 
 
-Suported image formats:
+Supported image formats:
 
 * Windows bitmaps - \*.bmp, \*.dib
 * JPEG files - \*.jpeg, \*.jpg, \*.jpe
