@@ -69,8 +69,8 @@ bool EqualImg(const cv::Mat& a, const cv::Mat& b)
 		return false;
 
 	static constexpr int noThreads = 4;
-	int hWidth = a.cols / noThreads;
-	int hHeight = a.rows / noThreads;
+	int hWidth = a.cols / 2;
+	int hHeight = a.rows / 2;
 
 	static std::array < std::thread, 4> threads;
 	InitArray( );
@@ -237,7 +237,7 @@ void CompareImages(std::vector<ImageProp>& ImagesPath1, std::vector<ImageProp>& 
 	std::vector <cv::Mat> images;
 	images.reserve( ImagesPath2.size() );
 
-	{// First iteration through ImagesPath2 for cache pourpose and check with the first element of ImagesPath1 as well
+	{// First iteration through ImagesPath2 for caching the images and check with the first element of ImagesPath1 as well
 		cv::Mat img = cv::imread(ImagesPath1[0].path, cv::IMREAD_GRAYSCALE);
 
 		for(auto& imgPath2 : ImagesPath2){
@@ -269,8 +269,9 @@ void CompareImages(std::vector<ImageProp>& ImagesPath1, std::vector<ImageProp>& 
 
 std::string GetInput( )
 {
+	char path[MAX_PATH];
+
 	while(true){
-		char path[MAX_PATH];
 		openFolderDlg(path);
 
 		if(strlen(path) != 0){
